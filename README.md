@@ -282,6 +282,83 @@
 		객체.delete()로 사용하며 조건에 맞는 행을 삭제한다.
 		get(), filter(), all()과 같이 사용한다.
 
+<hr/>
+
+# 4. Command
+
+	가상환경으로 접속
+	   venv/Scripts/activate
+	
+	현재 설치된 라이브러리를 파일로 정리
+	   pip freeze > requirements.txt
+	
+	requirements.txt에 작성된 라이브러리 설치
+	   pip install -r requirements.txt
+	
+	새로운 서비스 폴더 만들기
+	   python manage.py startapp [서비스 이름]
+	
+	※ 최초 1회에만 사용
+	Model 객체 및 settings.py 설정 반영 파일 제작
+	   python manage.py makemigrations
+	
+	※ 최초 1회에만 사용
+	makemigrations로 만든 migration 파일 실행
+	   python manage.py migrate
+	
+	Model 객체 및 settings.py 설정 반영 파일 제작
+	   python manage.py makemigrations [서비스 이름]
+	
+	makemigrations로 만든 migration 파일 실행
+	   python manage.py migrate [서비스 이름]
+	
+	migration 전체 삭제
+	   python manage.py migrate --fake [서비스 이름] zero
+	   직접 migrations의 파일 삭제
+	   직접 DBMS 테이블 DROP
+	
+	서버 실행
+		python manage.py runserver [포트번호]
+
+<hr/>
+
+# 5. REST
+# 5-1. REST
+Representational State Transfer  
+언제 어디서든 누구든 서버에 요청을 보낼 때  
+URI만으로도 데이터 또는 행위(CRUD) 상태를 이해할 수 있도록 설계하는 규칙   
+
+		1. 소문자로 작성한다.
+			대문자로 작성 시 문제가 발생할 수 있기 때문에 소문자로 작성한다.
+
+		2. 언더바 대신 하이픈을 사용한다.
+			가독성을 높이기 위해서 하이픈으로 구분하는 것이 좋다.
+
+		3. URI 마지막에 슬래시를 작성하지 않는다.
+			마지막에 작성하는 슬래시는 의미가 없다.
+
+		4. 계층 관계 표현 시 슬래시 구분자로 사용한다.
+			계층 관계(포함 관계)에서는 슬래시로 구분해준다.
+
+		5. 파일 확장자는 포함시키지 않는다.
+			파일 확장자는 URI로 표현하지 않고 Hearder의 Content-Type을 사용하여
+			body의 내용을 처리하도록 설계한다.
+
+		6. 데이터를 대표할 때에는 명사를 사용하고, 상태를 대표할 때에는 동사를 사용한다.
+			http://www.app.com/members/get/1 (x)
+			http://www.app.com/members/delete/1 (o)
+
+		7. URI에 사용되는 영어 단어는 복수로 작성한다. 
+
+
+
+
+
+
+
+
+
+
 
 
 
