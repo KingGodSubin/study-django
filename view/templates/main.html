@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>메인</title>
+</head>
+<body>
+    {% if member %}
+        {# 맨 앞에 /는 url로 가라라는 뜻 #}
+        <a href="/member/logout/">로그아웃</a>
+    {% else %}
+        <a href="{% url 'member:login'  %}">로그인</a>
+        <a href="{% url 'member:join' %}">회원가입</a>
+    {% endif %}
+    <h1>메인 페이지</h1>
+{#    HTML 구문에 직접 입력 #}
+{#    <h1>{{ member.member_name }}님 환영합니다.</h1>#}
+    <h1 id="intro"></h1>
+</body>
+<script>
+{#    JS로 처리 #}
+    const memberName = `{{ member.member_name }}`;
+    
+    if (memberName) {
+        document.getElementById("intro").innerText = `${memberName}님 환영합니다.`;
+    }
+</script>
+</html>

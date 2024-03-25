@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ANIMAL-REGISTER</title>
+</head>
+<body>
+    <form action="{% url 'animal-register' %}" method="post" name="animal-register-form">
+        {% csrf_token %}
+        <input type="text" name="animal-name" placeholder="이름">
+        <input type="text" name="animal-age" placeholder="나이">
+        <input type="text" name="animal-species" placeholder="종">
+        <input type="text" name="animal-condition" placeholder="건강 상태">
+        <button>완료</button>
+    </form>
+</body>
+</html>
